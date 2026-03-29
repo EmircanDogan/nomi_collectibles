@@ -6,16 +6,17 @@
 <title>NoomiCollectibles — Premium Figürinler</title>
 <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Rajdhani:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --marvel:#ED1D24; --dc:#0075C4; --sw:#FFE81F; --lotr:#C9A84C;
-    --bg-dark:#0a0a0f; --bg-card:#12121a; --bg-card2:#1a1a26;
-    --accent:#FFE81F; --text:#f0f0f0; --text-muted:#888;
+  :root{
+    --marvel:#ED1D24;--dc:#0075C4;--sw:#FFE81F;--lotr:#C9A84C;
+    --bg-dark:#0a0a0f;--bg-card:#12121a;--bg-card2:#1a1a26;
+    --accent:#FFE81F;--text:#f0f0f0;--text-muted:#888;
     --border:rgba(255,255,255,0.08);
     --halftone:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='1.5' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:'Rajdhani',sans-serif;background:var(--bg-dark);color:var(--text);min-height:100vh;overflow-x:hidden;}
 
+  /* ── COMIC BG ── */
   .comic-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
     background:var(--halftone),
       radial-gradient(ellipse 80% 60% at 20% 20%,rgba(237,29,36,0.06) 0%,transparent 60%),
@@ -30,9 +31,10 @@
       linear-gradient(45deg,rgba(255,255,255,0.015) 25%,transparent 25%);
     background-size:80px 80px;}
 
-  nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+  /* ── NAV ── */
+  nav{position:sticky;top:0;z-index:200;background:rgba(10,10,15,0.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
   .nav-top{display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;gap:1rem;flex-wrap:wrap;}
-  .logo-wrap{display:flex;flex-direction:column;line-height:1;}
+  .logo-wrap{display:flex;flex-direction:column;line-height:1;cursor:pointer;}
   .logo-sub{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--text-muted);font-weight:500;}
   .logo-main{font-family:'Bangers',cursive;font-size:2rem;letter-spacing:2px;background:linear-gradient(90deg,#fff 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
   .logo-main span{background:linear-gradient(90deg,var(--accent),#ff9900);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -48,6 +50,7 @@
   .cart-btn:hover{background:#ffd000;color:#000;}
   .cart-count{background:var(--marvel);color:#fff;font-size:.7rem;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 
+  /* ── CAT BAR ── */
   .cat-bar{display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--border);}
   .cat-bar::-webkit-scrollbar{display:none;}
   .cat-btn{flex:1;min-width:110px;background:none;border:none;border-right:1px solid var(--border);color:var(--text-muted);font-family:'Bebas Neue',cursive;font-size:1rem;letter-spacing:2px;padding:.7rem 1rem;cursor:pointer;transition:all .2s;position:relative;display:flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;}
@@ -62,6 +65,7 @@
   .cat-btn[data-cat="lotr"].active,.cat-btn[data-cat="lotr"]:hover{color:var(--lotr);}
   .cat-dot{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.7;flex-shrink:0;}
 
+  /* ── HERO ── */
   .hero{position:relative;z-index:1;padding:4rem 2rem 3rem;text-align:center;overflow:hidden;}
   .hero-eyebrow{font-family:'Bebas Neue',cursive;letter-spacing:8px;font-size:.85rem;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:1rem;}
   .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--accent);opacity:.5;}
@@ -71,8 +75,10 @@
   .hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#000;font-family:'Bebas Neue',cursive;font-size:1.1rem;letter-spacing:3px;padding:.85rem 2.2rem;border-radius:4px;cursor:pointer;border:none;transition:all .2s;}
   .hero-cta:hover{background:#fff;transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,232,31,0.25);}
 
+  /* ── MAIN ── */
   main{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:2rem 1.5rem 4rem;}
 
+  /* ── FEATURED ── */
   .featured-strip{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:3rem;}
   .featured-card{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--border);min-height:210px;display:flex;align-items:flex-end;padding:1.5rem;cursor:pointer;transition:transform .25s;}
   .featured-card:hover{transform:scale(1.015);}
@@ -94,8 +100,10 @@
   .filter-pill:hover{border-color:rgba(255,255,255,0.2);color:var(--text);}
   .filter-pill.active{border-color:var(--accent);color:var(--accent);background:rgba(255,232,31,0.07);}
 
+  /* ── GRID ── */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:1.25rem;}
 
+  /* ── CARD ── */
   .card{background:var(--bg-card);border-radius:12px;border:1px solid var(--border);overflow:hidden;cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s;animation:fadeUp .4s ease both;display:flex;flex-direction:column;}
   .card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,0.16);box-shadow:0 20px 55px rgba(0,0,0,0.65);}
   @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
@@ -131,19 +139,21 @@
   .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--border);}
   .card-price{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;}
   .price-val{font-family:'Bebas Neue',cursive;font-size:1.5rem;color:#fff;letter-spacing:1px;}
-  .price-cur{font-size:.85rem;color:var(--text-muted);font-weight:600;}
   .price-old{font-size:.8rem;color:var(--text-muted);text-decoration:line-through;font-weight:500;}
   .add-btn{background:var(--accent);color:#000;border:none;border-radius:6px;padding:.55rem 1rem;font-family:'Bebas Neue',cursive;font-size:.82rem;letter-spacing:1.5px;cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0;}
   .add-btn:hover{background:#fff;transform:scale(1.05);}
   .add-btn:disabled{background:rgba(255,255,255,0.1);color:var(--text-muted);cursor:not-allowed;transform:none;}
   .stars{color:var(--accent);font-size:.7rem;letter-spacing:1px;}
 
+  /* ── EMPTY ── */
   .empty{text-align:center;padding:4rem 2rem;color:var(--text-muted);display:none;}
   .empty h3{font-family:'Bebas Neue',cursive;font-size:2rem;letter-spacing:3px;color:rgba(255,255,255,0.18);margin-bottom:.5rem;}
 
-  .toast{position:fixed;bottom:2rem;right:2rem;background:var(--accent);color:#000;font-family:'Bebas Neue',cursive;font-size:1rem;letter-spacing:2px;padding:.8rem 1.5rem;border-radius:6px;z-index:999;transform:translateY(100px);opacity:0;transition:all .3s;pointer-events:none;}
+  /* ── TOAST ── */
+  .toast{position:fixed;bottom:2rem;right:2rem;background:var(--accent);color:#000;font-family:'Bebas Neue',cursive;font-size:1rem;letter-spacing:2px;padding:.8rem 1.5rem;border-radius:6px;z-index:9999;transform:translateY(100px);opacity:0;transition:all .3s;pointer-events:none;}
   .toast.show{transform:translateY(0);opacity:1;}
 
+  /* ── FOOTER ── */
   footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
   .footer-logo{font-family:'Bangers',cursive;font-size:1.4rem;letter-spacing:2px;color:var(--text-muted);}
   .footer-logo span{color:var(--accent);}
@@ -152,6 +162,210 @@
   .footer-links a{color:inherit;text-decoration:none;cursor:pointer;}
   .footer-links a:hover{color:var(--accent);}
 
+  /* ════════════════════════════════════════
+     PRODUCT DETAIL MODAL
+  ════════════════════════════════════════ */
+  .modal-overlay{
+    position:fixed;inset:0;z-index:500;
+    background:rgba(5,5,10,0.88);
+    backdrop-filter:blur(12px);
+    display:flex;align-items:center;justify-content:center;
+    padding:1.5rem;
+    opacity:0;pointer-events:none;
+    transition:opacity .3s;
+  }
+  .modal-overlay.open{opacity:1;pointer-events:all;}
+
+  .modal{
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:18px;
+    width:100%;max-width:960px;
+    max-height:90vh;
+    overflow-y:auto;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(255,255,255,0.1) transparent;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    position:relative;
+    transform:translateY(30px) scale(0.97);
+    transition:transform .35s cubic-bezier(.22,.68,0,1.2);
+  }
+  .modal-overlay.open .modal{transform:translateY(0) scale(1);}
+
+  /* ── Modal image panel ── */
+  .modal-img-panel{
+    position:relative;
+    background:#0d0d14;
+    border-radius:18px 0 0 18px;
+    overflow:hidden;
+    min-height:480px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .modal-img-panel::after{
+    content:'';position:absolute;inset:0;
+    background:var(--halftone);opacity:.5;pointer-events:none;
+  }
+  .modal-img-panel img{
+    width:100%;height:100%;object-fit:cover;object-position:top center;
+    display:block;
+  }
+  .modal-no-img{font-size:10rem;opacity:.08;color:#fff;}
+
+  /* franchise glow strip on left edge */
+  .modal-img-panel .m-strip{
+    position:absolute;left:0;top:0;bottom:0;width:4px;z-index:2;
+  }
+  .m-strip.marvel{background:var(--marvel);}
+  .m-strip.dc{background:var(--dc);}
+  .m-strip.starwars{background:var(--sw);}
+  .m-strip.lotr{background:var(--lotr);}
+
+  .modal-img-panel .m-franchise-tag{
+    position:absolute;bottom:16px;left:16px;z-index:3;
+    font-family:'Bebas Neue',cursive;font-size:.75rem;letter-spacing:2px;
+    padding:4px 10px;border-radius:3px;
+  }
+  .m-franchise-tag.marvel{background:var(--marvel);color:#fff;}
+  .m-franchise-tag.dc{background:var(--dc);color:#fff;}
+  .m-franchise-tag.starwars{background:var(--sw);color:#000;}
+  .m-franchise-tag.lotr{background:var(--lotr);color:#000;}
+
+  .modal-badge-tag{
+    position:absolute;top:14px;right:14px;z-index:3;
+    font-family:'Bebas Neue',cursive;font-size:.72rem;letter-spacing:1px;
+    padding:4px 10px;border-radius:3px;
+    background:rgba(10,10,15,0.85);border:1px solid rgba(255,255,255,0.15);color:var(--text-muted);
+  }
+  .modal-badge-tag.new{border-color:#4ade80;color:#4ade80;}
+  .modal-badge-tag.ltd{border-color:var(--accent);color:var(--accent);}
+
+  /* ── Modal info panel ── */
+  .modal-info{
+    padding:2.4rem 2rem;
+    display:flex;flex-direction:column;gap:1.4rem;
+    overflow-y:auto;
+  }
+
+  .modal-close{
+    position:absolute;top:14px;right:14px;z-index:10;
+    width:36px;height:36px;border-radius:50%;
+    background:rgba(255,255,255,0.07);border:1px solid var(--border);
+    color:var(--text-muted);font-size:1.1rem;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:all .2s;
+  }
+  .modal-close:hover{background:rgba(255,255,255,0.14);color:#fff;}
+
+  .modal-eyebrow{
+    font-family:'Bebas Neue',cursive;font-size:.72rem;letter-spacing:4px;
+    color:var(--text-muted);display:flex;align-items:center;gap:8px;
+  }
+  .modal-eyebrow-dot{width:6px;height:6px;border-radius:50%;}
+  .modal-eyebrow-dot.marvel{background:var(--marvel);}
+  .modal-eyebrow-dot.dc{background:var(--dc);}
+  .modal-eyebrow-dot.starwars{background:var(--sw);}
+  .modal-eyebrow-dot.lotr{background:var(--lotr);}
+
+  .modal-title{
+    font-family:'Bangers',cursive;font-size:2.6rem;letter-spacing:2px;
+    line-height:.95;color:#fff;
+    text-shadow:2px 2px 0 rgba(0,0,0,0.4);
+  }
+
+  .modal-stars-row{display:flex;align-items:center;gap:10px;}
+  .modal-stars{color:var(--accent);font-size:.9rem;letter-spacing:2px;}
+  .modal-review-count{font-size:.8rem;color:var(--text-muted);font-weight:600;}
+
+  .modal-price-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .modal-price{font-family:'Bebas Neue',cursive;font-size:2.8rem;letter-spacing:1px;color:#fff;line-height:1;}
+  .modal-price-old{font-size:1rem;color:var(--text-muted);text-decoration:line-through;font-weight:600;}
+  .modal-price-save{
+    font-family:'Bebas Neue',cursive;font-size:.8rem;letter-spacing:2px;
+    background:rgba(74,222,128,0.12);color:#4ade80;
+    border:1px solid rgba(74,222,128,0.3);
+    padding:3px 8px;border-radius:4px;
+  }
+
+  .modal-divider{height:1px;background:var(--border);}
+
+  .modal-desc{font-size:.95rem;color:var(--text-muted);line-height:1.7;font-weight:500;}
+
+  /* spec grid */
+  .modal-specs{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;}
+  .spec-item{
+    background:var(--bg-card2);border:1px solid var(--border);
+    border-radius:8px;padding:.7rem .9rem;
+  }
+  .spec-label{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:.25rem;}
+  .spec-val{font-family:'Bebas Neue',cursive;font-size:1rem;letter-spacing:1px;color:#fff;}
+
+  /* how it's made */
+  .modal-how{
+    background:var(--bg-card2);border:1px solid var(--border);border-radius:10px;
+    padding:1.1rem 1.2rem;
+  }
+  .modal-how-title{
+    font-family:'Bebas Neue',cursive;font-size:.85rem;letter-spacing:3px;
+    color:var(--text-muted);margin-bottom:.8rem;
+  }
+  .how-steps{display:flex;flex-direction:column;gap:.55rem;}
+  .how-step{display:flex;align-items:flex-start;gap:.75rem;font-size:.85rem;color:var(--text-muted);line-height:1.5;}
+  .how-step-num{
+    font-family:'Bebas Neue',cursive;font-size:.75rem;letter-spacing:1px;
+    min-width:22px;height:22px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;margin-top:1px;
+  }
+  .how-step-num.marvel{background:rgba(237,29,36,0.15);color:var(--marvel);border:1px solid rgba(237,29,36,0.3);}
+  .how-step-num.dc{background:rgba(0,117,196,0.15);color:var(--dc);border:1px solid rgba(0,117,196,0.3);}
+  .how-step-num.starwars{background:rgba(255,232,31,0.1);color:var(--sw);border:1px solid rgba(255,232,31,0.3);}
+  .how-step-num.lotr{background:rgba(201,168,76,0.1);color:var(--lotr);border:1px solid rgba(201,168,76,0.3);}
+
+  /* qty + cta */
+  .modal-actions{display:flex;flex-direction:column;gap:.75rem;}
+  .qty-row{display:flex;align-items:center;gap:.75rem;}
+  .qty-label{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:600;}
+  .qty-ctrl{display:flex;align-items:center;border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+  .qty-ctrl button{
+    background:none;border:none;color:var(--text);
+    width:36px;height:36px;font-size:1.1rem;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .15s;font-family:'Rajdhani',sans-serif;font-weight:700;
+  }
+  .qty-ctrl button:hover{background:rgba(255,255,255,0.07);}
+  .qty-ctrl span{min-width:36px;text-align:center;font-family:'Bebas Neue',cursive;font-size:1rem;letter-spacing:1px;border-left:1px solid var(--border);border-right:1px solid var(--border);height:36px;display:flex;align-items:center;justify-content:center;}
+
+  .modal-buy-btn{
+    width:100%;background:var(--accent);color:#000;
+    border:none;border-radius:8px;
+    padding:1rem;
+    font-family:'Bebas Neue',cursive;font-size:1.15rem;letter-spacing:3px;
+    cursor:pointer;transition:all .2s;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .modal-buy-btn:hover{background:#fff;transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,232,31,0.2);}
+  .modal-buy-btn:disabled{background:rgba(255,255,255,0.1);color:var(--text-muted);cursor:not-allowed;transform:none;box-shadow:none;}
+
+  .modal-wish-btn{
+    width:100%;background:none;color:var(--text-muted);
+    border:1px solid var(--border);border-radius:8px;
+    padding:.75rem;
+    font-family:'Bebas Neue',cursive;font-size:.95rem;letter-spacing:3px;
+    cursor:pointer;transition:all .2s;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .modal-wish-btn:hover{border-color:rgba(255,255,255,0.2);color:#fff;}
+
+  .modal-shipping{
+    display:flex;align-items:center;gap:8px;
+    font-size:.8rem;color:var(--text-muted);font-weight:500;
+    padding:.7rem .9rem;background:rgba(74,222,128,0.06);
+    border:1px solid rgba(74,222,128,0.15);border-radius:8px;
+  }
+  .modal-shipping-icon{color:#4ade80;font-size:1rem;}
+
+  /* ── RESPONSIVE ── */
   @media(max-width:768px){
     .nav-top{padding:.8rem 1rem;}
     .nav-search{order:3;flex-basis:100%;max-width:100%;}
@@ -166,20 +380,30 @@
     footer{flex-direction:column;text-align:center;}
     .footer-links{justify-content:center;}
     .fc-title{font-size:1.6rem;}
+
+    /* modal mobile — stack vertically */
+    .modal{grid-template-columns:1fr;max-width:100%;max-height:95vh;border-radius:14px;}
+    .modal-img-panel{border-radius:14px 14px 0 0;min-height:300px;}
+    .modal-title{font-size:2rem;}
+    .modal-price{font-size:2.2rem;}
+    .modal-info{padding:1.5rem 1.2rem;}
+    .modal-specs{grid-template-columns:1fr 1fr;}
   }
   @media(max-width:480px){
     .grid{grid-template-columns:repeat(2,1fr);}
     .price-val{font-size:1.15rem;}
     .add-btn{padding:.4rem .6rem;font-size:.72rem;letter-spacing:1px;}
+    .modal-specs{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
 <div class="comic-bg"></div>
 
+<!-- ── NAV ── -->
 <nav>
   <div class="nav-top">
-    <div class="logo-wrap">
+    <div class="logo-wrap" onclick="closeModal()">
       <span class="logo-sub">by nomi3dstudio</span>
       <div class="logo-main">Nomi<span>Collectibles</span></div>
     </div>
@@ -204,6 +428,7 @@
   </div>
 </nav>
 
+<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-eyebrow">Premium Koleksiyoncu Serisi</div>
   <h1>Efsaneleri<br><span class="line2">Hayata Getir</span></h1>
@@ -211,6 +436,7 @@
   <button class="hero-cta" onclick="document.getElementById('shopSection').scrollIntoView({behavior:'smooth'})">Koleksiyonu Keşfet ↓</button>
 </section>
 
+<!-- ── MAIN ── -->
 <main id="shopSection">
   <div class="featured-strip" id="featuredStrip">
     <div class="featured-card fc-dc-base" onclick="setCategory('dc',document.querySelector('[data-cat=dc]'))">
@@ -252,6 +478,7 @@
   </div>
 </main>
 
+<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-logo">Nomi<span>Collectibles</span></div>
   <div class="footer-copy">© 2025 Nomi3DStudio — Tüm hakları saklıdır</div>
@@ -260,58 +487,214 @@
   </div>
 </footer>
 
+<!-- ── TOAST ── -->
 <div class="toast" id="toast"></div>
 
+<!-- ════════════════════════════════════════
+     PRODUCT DETAIL MODAL
+════════════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+
+    <!-- LEFT: Image -->
+    <div class="modal-img-panel" id="modalImgPanel">
+      <div class="m-strip" id="modalStrip"></div>
+      <div id="modalImgContent"></div>
+      <span class="m-franchise-tag" id="modalFranchiseTag"></span>
+      <span class="modal-badge-tag" id="modalBadgeTag" style="display:none"></span>
+    </div>
+
+    <!-- RIGHT: Info -->
+    <div class="modal-info">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+
+      <div>
+        <div class="modal-eyebrow" id="modalEyebrow">
+          <span class="modal-eyebrow-dot" id="modalEyebrowDot"></span>
+          <span id="modalEyebrowText"></span>
+        </div>
+        <div class="modal-title" id="modalTitle"></div>
+      </div>
+
+      <div class="modal-stars-row">
+        <span class="modal-stars" id="modalStars"></span>
+        <span class="modal-review-count" id="modalReviewCount"></span>
+      </div>
+
+      <div class="modal-price-row">
+        <span class="modal-price" id="modalPrice"></span>
+        <span class="modal-price-old" id="modalPriceOld" style="display:none"></span>
+        <span class="modal-price-save" id="modalPriceSave" style="display:none"></span>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <p class="modal-desc" id="modalDesc"></p>
+
+      <!-- Specs -->
+      <div class="modal-specs" id="modalSpecs"></div>
+
+      <!-- How it's made -->
+      <div class="modal-how">
+        <div class="modal-how-title">Nasıl Üretilir?</div>
+        <div class="how-steps" id="modalHowSteps"></div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <!-- Quantity + Buy -->
+      <div class="modal-actions">
+        <div class="qty-row">
+          <span class="qty-label">Adet</span>
+          <div class="qty-ctrl">
+            <button onclick="changeQty(-1)">−</button>
+            <span id="qtyDisplay">1</span>
+            <button onclick="changeQty(1)">+</button>
+          </div>
+        </div>
+        <button class="modal-buy-btn" id="modalBuyBtn" onclick="modalAddToCart()">
+          🛒 Sepete Ekle
+        </button>
+        <button class="modal-wish-btn">♡ İstek Listesine Ekle</button>
+        <div class="modal-shipping">
+          <span class="modal-shipping-icon">🚚</span>
+          <span>Türkiye geneli ücretsiz kargo · 3–7 iş günü</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-const PRODUCTS = [
-  // DC — your real images
-  {id:1,  name:'Aquaman',             cat:'dc',      img:'aquaman.jpg',              price:1299, oldPrice:1599, scale:'1/10', mat:'Premium Reçine', badge:'ltd', rating:5, desc:'Atlantis\'in Kral\'ı — trident ve dalga bazıyla muhteşem bir sergi parçası.'},
-  {id:2,  name:'Azrael Heykel',       cat:'dc',      img:'azrael scluplture.jpg',    price:1499, oldPrice:null, scale:'1/8',  mat:'Polistone',      badge:'new', rating:5, desc:'Gotham\'ın acımasız koruyucusu — karanlık kostüm ve kılıç detayı mükemmel.'},
-  {id:3,  name:'Azrael',              cat:'dc',      img:'azrael.jpg',               price:1199, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'',    rating:4, desc:'Kutsal kılıçla savaş pozisyonu — ince zırh ve kanat oyması.'},
-  {id:4,  name:'Batman',              cat:'dc',      img:'batman.webp',              price:1599, oldPrice:1899, scale:'1/10', mat:'Premium Reçine', badge:'ltd', rating:5, desc:'Dark Knight çatı evi bazıyla — Christopher Nolan ilhamlı heykel.'},
-  {id:5,  name:'Black Adam',          cat:'dc',      img:'black adam.webp',          price:1399, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'new', rating:5, desc:'Şimşek efektleri ve kahraman duruşuyla Kara Adam\'ın dönüşü.'},
-  {id:6,  name:'Deadshot Büst',       cat:'dc',      img:'deadshot bust.jpg',        price:899,  oldPrice:null, scale:'1/4 Büst', mat:'Reçine Büst', badge:'', rating:4, desc:'Suicide Squad\'ın keskin nişancısı — detaylı kask ve silah.'},
-  {id:7,  name:'Dr. Fate Büst',       cat:'dc',      img:'dr fate bust.jpg',         price:849,  oldPrice:null, scale:'1/4 Büst', mat:'Reçine Büst', badge:'', rating:4, desc:'Altın kask ve mistik aurayla Kader\'in Doktoru.'},
-  {id:8,  name:'General Zod',         cat:'dc',      img:'general zod.jpg',          price:1299, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'ltd', rating:4, desc:'Krypton\'un savaş generalı — Çelik Adam\'dan efsane düşman.'},
-  {id:9,  name:'Green Arrow',         cat:'dc',      img:'green arrow.webp',         price:1199, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'new', rating:5, desc:'Star City\'nin oku — gergin yay pozisyonu ve kapüşon detayı.'},
-  {id:10, name:'Green Lantern',       cat:'dc',      img:'green lantern.webp',       price:1349, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'',    rating:4, desc:'Yeşil irade enerjisi halka ışık efektiyle göz alıcı bir eser.'},
-  {id:11, name:'Katana Büst',         cat:'dc',      img:'katana bust.jpg',          price:799,  oldPrice:null, scale:'1/4 Büst', mat:'Reçine Büst', badge:'', rating:4, desc:'Suicide Squad Katana — Ruhları Tutan Kılıç detayıyla.'},
-  {id:12, name:'Lobo',                cat:'dc',      img:'lobo.webp',                price:1499, oldPrice:null, scale:'1/10', mat:'Polistone',      badge:'ltd', rating:5, desc:'Galaksinin son Czarniani\'si — motoru ve zinciriyle tam boyut.'},
-  {id:13, name:'Martian Manhunter',   cat:'dc',      img:'martian.jpg',              price:1299, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'',    rating:4, desc:'Mars\'ın son savaşçısı — dönüşüm efektleriyle dinamik poz.'},
-  {id:14, name:'Mr. Freeze',          cat:'dc',      img:'mr freeze.jpg',            price:1399, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'new', rating:5, desc:'Gotham\'ın buz hırsızı — kriyojenik zırh ve buz tabanlık.'},
-  {id:15, name:'Nightwing',           cat:'dc',      img:'nightwing.jpg',            price:1249, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'',    rating:4, desc:'Dick Grayson\'ın ikinci kimliği — akrobatik uçuş pozisyonu.'},
-  {id:16, name:'Red Hood',            cat:'dc',      img:'red hood.webp',            price:1349, oldPrice:1599, scale:'1/10', mat:'Premium Reçine', badge:'',    rating:5, desc:'Jason Todd\'un intikamı — çift tabancalı karanlık kahraman.'},
-  {id:17, name:'Rocketeer',           cat:'dc',      img:'rocketeer.jpg',            price:1199, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'new', rating:4, desc:'Roket takımı ve klasik kask — nostalji koleksiyonunun zirvesi.'},
-  {id:18, name:'Scarecrow',           cat:'dc',      img:'scarecrow.jpg',            price:1149, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'',    rating:4, desc:'Korku gazı ve çuval maskesiyle Gotham\'ın en ürkütücü düşmanı.'},
-  {id:19, name:'Superman Büst',       cat:'dc',      img:'superman bust.jpg',        price:849,  oldPrice:null, scale:'1/4 Büst', mat:'Reçine Büst', badge:'', rating:5, desc:'Çelik Adam ikonik S logosuyla — klasik koleksiyon büstü.'},
-  {id:20, name:'Superman',            cat:'dc',      img:'superman.jpg',             price:1399, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'new', rating:5, desc:'Metropolis\'in üzerinde uçuş pozu — pelerin dalga detayı.'},
-  {id:21, name:'Talon Büst',          cat:'dc',      img:'talon vust.jpeg',          price:999,  oldPrice:null, scale:'1/4 Büst', mat:'Reçine Büst', badge:'ltd', rating:4, desc:'Gotham Mahkemesi\'nin suikastçısı — pençe ve maske detayı.'},
-  {id:22, name:'Vampirella',          cat:'dc',      img:'vampirella.jpg',           price:1299, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'ltd', rating:5, desc:'Vampi\'nin ikonik kırmızı kostümü — gece yarısı tematik baz.'},
-  {id:23, name:'Zatanna Büst',        cat:'dc',      img:'zatanna bust.jpg',         price:849,  oldPrice:null, scale:'1/4 Büst', mat:'Reçine Büst', badge:'new', rating:5, desc:'Sihirbaz Prenses — sihir efekti ve silindir şapkasıyla.'},
-
-  // Marvel — placeholder until you add images
-  {id:24, name:'Iron Man MK-85',      cat:'marvel',  img:'', price:1799, oldPrice:2199, scale:'1/10', mat:'Premium Reçine', badge:'ltd', rating:5, desc:'Endgame zırhı — enerji reaktör ışık efekti bazıyla.'},
-  {id:25, name:'Spider-Man Miles',    cat:'marvel',  img:'', price:1499, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'new', rating:5, desc:'Miles Morales siyah-kırmızı takımıyla sallanma pozisyonunda.'},
-  {id:26, name:'Thor Odinson',        cat:'marvel',  img:'', price:1899, oldPrice:null, scale:'1/6',  mat:'Premium Reçine', badge:'ltd', rating:5, desc:'Stormbreaker ve şimşek efektli baz — Infinity War versiyonu.'},
-  {id:27, name:'Black Panther',       cat:'marvel',  img:'', price:1699, oldPrice:null, scale:'1/10', mat:'Premium Reçine', badge:'',   rating:4, desc:'Wakanda vibranium kostümü — kinetik enerji parıltı detayı.'},
-  {id:28, name:'Thanos Eldiveni',     cat:'marvel',  img:'', price:2499, oldPrice:2999, scale:'1/4',  mat:'Polistone',      badge:'ltd', rating:5, desc:'Altı Sonsuzluk Taşıyla gerçek boyutlu sergi parçası.'},
-
+/* ═══════════════ DATA ═══════════════ */
+const PRODUCTS=[
+  // DC — real images
+  {id:1, name:'Aquaman',cat:'dc',img:'aquaman.jpg',price:1299,oldPrice:1599,scale:'1/10',mat:'Premium Reçine',badge:'ltd',rating:5,reviews:48,
+   desc:'Atlantis\'in Kral\'ı — trident ve dalga bazıyla muhteşem bir sergi parçası. Her detay titizlikle işlenmiş; zırh pulları, altın kemer ve Trident\'in tüm oymaları elle boyalıdır.',
+   specs:{Yükseklik:'28 cm',Ağırlık:'620 g',Seri:'Kral Serisi',Üretim:'El Boyamalı'}},
+  {id:2, name:'Azrael Heykel',cat:'dc',img:'azrael scluplture.jpg',price:1499,oldPrice:null,scale:'1/8',mat:'Polistone',badge:'new',rating:5,reviews:17,
+   desc:'Gotham\'ın acımasız koruyucusu, kutsal zırhı ve ateşli kılıcıyla tam boy heykelde. Polistone malzeme sayesinde olağanüstü ağırlık hissi ve dayanıklılık sunar.',
+   specs:{Yükseklik:'35 cm',Ağırlık:'1.1 kg',Seri:'Aziz Serisi',Üretim:'El Boyamalı'}},
+  {id:3, name:'Azrael',cat:'dc',img:'azrael.jpg',price:1199,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'',rating:4,reviews:22,
+   desc:'Kutsal kılıçla savaş pozisyonu; ince zırh ve kanat oymasıyla dikkat çekici. Siyah ve altın renk kombinasyonu koleksiyonun en göz alıcı parçalarından biridir.',
+   specs:{Yükseklik:'26 cm',Ağırlık:'490 g',Seri:'Gotham Kahramanları',Üretim:'El Boyamalı'}},
+  {id:4, name:'Batman',cat:'dc',img:'batman.webp',price:1599,oldPrice:1899,scale:'1/10',mat:'Premium Reçine',badge:'ltd',rating:5,reviews:134,
+   desc:'Christopher Nolan ilhamlı Dark Knight heykeli; Gotham çatısı baz detayıyla. Karanlık zırh yüzeyi elle uygulanmış patina boyasıyla derin bir gerçeklik hissi verir.',
+   specs:{Yükseklik:'30 cm',Ağırlık:'710 g',Seri:'Dark Knight Serisi',Üretim:'Sınırlı — 200 adet'}},
+  {id:5, name:'Black Adam',cat:'dc',img:'black adam.webp',price:1399,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'new',rating:5,reviews:31,
+   desc:'Şimşek efektleri ve kahraman duruşuyla Kara Adam\'ın gücü somutlaşıyor. Vücudu saran enerji akımları şeffaf reçineyle yeniden yaratılmıştır.',
+   specs:{Yükseklik:'29 cm',Ağırlık:'650 g',Seri:'Tanrısal Güç Serisi',Üretim:'El Boyamalı'}},
+  {id:6, name:'Deadshot Büst',cat:'dc',img:'deadshot bust.jpg',price:899,oldPrice:null,scale:'1/4 Büst',mat:'Reçine Büst',badge:'',rating:4,reviews:19,
+   desc:'Suicide Squad\'ın keskin nişancısı detaylı kask ve silah tasarımıyla büst formunda. Metal efektli kask yüzeyi airbrush tekniğiyle bitirilmiştir.',
+   specs:{Yükseklik:'22 cm',Ağırlık:'380 g',Seri:'Büst Koleksiyonu',Üretim:'El Boyamalı'}},
+  {id:7, name:'Dr. Fate Büst',cat:'dc',img:'dr fate bust.jpg',price:849,oldPrice:null,scale:'1/4 Büst',mat:'Reçine Büst',badge:'',rating:4,reviews:14,
+   desc:'Altın kask ve mistik aurayla Kader\'in Doktoru büst formunda; koleksiyonun en gizemli parçası. Altın kask yüzeyi gerçek varak efektiyle işlenmiştir.',
+   specs:{Yükseklik:'20 cm',Ağırlık:'340 g',Seri:'Büst Koleksiyonu',Üretim:'El Boyamalı'}},
+  {id:8, name:'General Zod',cat:'dc',img:'general zod.jpg',price:1299,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'ltd',rating:4,reviews:26,
+   desc:'Krypton\'un savaş generalı — Çelik Adam\'ın en güçlü düşmanı olağanüstü detayla. Kryptonian zırh plakaları her biri ayrı ayrı boyanmış 40 parçadan oluşur.',
+   specs:{Yükseklik:'28 cm',Ağırlık:'580 g',Seri:'Krypton Serisi',Üretim:'Sınırlı — 150 adet'}},
+  {id:9, name:'Green Arrow',cat:'dc',img:'green arrow.webp',price:1199,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'new',rating:5,reviews:38,
+   desc:'Star City\'nin oku — gergin yay pozisyonu ve kapüşon detayıyla sahne dolu bir eser. Okluk ve yeşil kapüşon dokusu son derece ince bir işçilikle tamamlanmıştır.',
+   specs:{Yükseklik:'27 cm',Ağırlık:'510 g',Seri:'Yeşil Kahraman Serisi',Üretim:'El Boyamalı'}},
+  {id:10, name:'Green Lantern',cat:'dc',img:'green lantern.webp',price:1349,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'',rating:4,reviews:29,
+   desc:'Yeşil irade enerjisi halka ışık efektiyle göz alıcı bir eser. Şeffaf yeşil reçine enerji yapıları figürü gerçek anlamda hayata taşır.',
+   specs:{Yükseklik:'29 cm',Ağırlık:'600 g',Seri:'Uzay Kolordusu Serisi',Üretim:'El Boyamalı'}},
+  {id:11, name:'Katana Büst',cat:'dc',img:'katana bust.jpg',price:799,oldPrice:null,scale:'1/4 Büst',mat:'Reçine Büst',badge:'',rating:4,reviews:11,
+   desc:'Suicide Squad Katana — Ruhları Tutan Kılıç detayıyla güçlü bir büst. Katana\'nın maskesi ve saçları özenle boyanmış; kılıç metal efektlidir.',
+   specs:{Yükseklik:'19 cm',Ağırlık:'300 g',Seri:'Büst Koleksiyonu',Üretim:'El Boyamalı'}},
+  {id:12, name:'Lobo',cat:'dc',img:'lobo.webp',price:1499,oldPrice:null,scale:'1/10',mat:'Polistone',badge:'ltd',rating:5,reviews:44,
+   desc:'Galaksinin son Czarniani\'si — motoru ve zinciriyle tam boy polistone heykel. Lobo\'nun motoru ayrı bir sergi parçası olarak da değer taşır.',
+   specs:{Yükseklik:'30 cm',Ağırlık:'980 g',Seri:'Galaksi Serisi',Üretim:'Sınırlı — 100 adet'}},
+  {id:13, name:'Martian Manhunter',cat:'dc',img:'martian.jpg',price:1299,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'',rating:4,reviews:21,
+   desc:'Mars\'ın son savaşçısı — dönüşüm efektleriyle dinamik ve etkileyici bir poz. Vücudun yarı saydam bölgeleri şeffaf kırmızı reçineyle işlenmiştir.',
+   specs:{Yükseklik:'28 cm',Ağırlık:'550 g',Seri:'Adalet Birliği Serisi',Üretim:'El Boyamalı'}},
+  {id:14, name:'Mr. Freeze',cat:'dc',img:'mr freeze.jpg',price:1399,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'new',rating:5,reviews:33,
+   desc:'Gotham\'ın buz hırsızı — kriyojenik zırh ve buz efektli tabanlıkla. Buz kristalleri akrilik ve reçine karışımından oluşur; ışıkta nefes kesici parlar.',
+   specs:{Yükseklik:'29 cm',Ağırlık:'680 g',Seri:'Gotham Düşmanları Serisi',Üretim:'El Boyamalı'}},
+  {id:15, name:'Nightwing',cat:'dc',img:'nightwing.jpg',price:1249,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'',rating:4,reviews:52,
+   desc:'Dick Grayson\'ın akrobatik uçuş pozisyonu — çift escrima değneği ve dinamik baz. Mavi şerit detayları fosforlu boyayla bitirilmiş olup karanlıkta hafifçe parlar.',
+   specs:{Yükseklik:'28 cm',Ağırlık:'520 g',Seri:'Gotham Kahramanları',Üretim:'El Boyamalı'}},
+  {id:16, name:'Red Hood',cat:'dc',img:'red hood.webp',price:1349,oldPrice:1599,scale:'1/10',mat:'Premium Reçine',badge:'',rating:5,reviews:67,
+   desc:'Jason Todd\'un intikamı — çift tabancalı karanlık kahraman duruşuyla etkileyici. Kırmızı kask ve deri ceket dokusu inanılmaz detayda işlenmiştir.',
+   specs:{Yükseklik:'27 cm',Ağırlık:'560 g',Seri:'Bat Ailesi Serisi',Üretim:'El Boyamalı'}},
+  {id:17, name:'Rocketeer',cat:'dc',img:'rocketeer.jpg',price:1199,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'new',rating:4,reviews:16,
+   desc:'Roket takımı ve klasik kask — nostalji koleksiyonunun zirvesi; uçuş pozisyonunda. Kromajlı kask yüzeyi özel metalik boya ile bitirilmiştir.',
+   specs:{Yükseklik:'27 cm',Ağırlık:'500 g',Seri:'Altın Dönem Serisi',Üretim:'El Boyamalı'}},
+  {id:18, name:'Scarecrow',cat:'dc',img:'scarecrow.jpg',price:1149,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'',rating:4,reviews:24,
+   desc:'Korku gazı ve çuval maskesiyle Gotham\'ın en ürkütücü düşmanı; atmosferik baz detayı. Bez doku efektleri reçinede mükemmel biçimde yeniden yaratılmıştır.',
+   specs:{Yükseklik:'26 cm',Ağırlık:'470 g',Seri:'Gotham Düşmanları Serisi',Üretim:'El Boyamalı'}},
+  {id:19, name:'Superman Büst',cat:'dc',img:'superman bust.jpg',price:849,oldPrice:null,scale:'1/4 Büst',mat:'Reçine Büst',badge:'',rating:5,reviews:88,
+   desc:'Çelik Adam ikonik S logosuyla — klasik koleksiyon büstü; her koleksiyonun olmazsa olmazı. Cape yüzeyi kumaş doku efektiyle bitirilmiştir.',
+   specs:{Yükseklik:'21 cm',Ağırlık:'360 g',Seri:'Büst Koleksiyonu',Üretim:'El Boyamalı'}},
+  {id:20, name:'Superman',cat:'dc',img:'superman.jpg',price:1399,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'new',rating:5,reviews:72,
+   desc:'Metropolis\'in üzerinde uçuş pozu — pelerin dalga detayı ve hız izli baz. Cape\'in doğal dalgalanma hissi 3D baskı teknolojisinin üst düzey kullanımını yansıtır.',
+   specs:{Yükseklik:'30 cm',Ağırlık:'640 g',Seri:'Man of Steel Serisi',Üretim:'El Boyamalı'}},
+  {id:21, name:'Talon Büst',cat:'dc',img:'talon vust.jpeg',price:999,oldPrice:null,scale:'1/4 Büst',mat:'Reçine Büst',badge:'ltd',rating:4,reviews:9,
+   desc:'Gotham Mahkemesi\'nin suikastçısı — pençe ve maske detayıyla gizem dolu büst. Talont zırhının metal parlaması özel chrome boya tekniğiyle elde edilmiştir.',
+   specs:{Yükseklik:'22 cm',Ağırlık:'390 g',Seri:'Büst Koleksiyonu',Üretim:'Sınırlı — 80 adet'}},
+  {id:22, name:'Vampirella',cat:'dc',img:'vampirella.jpg',price:1299,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'ltd',rating:5,reviews:41,
+   desc:'Vampi\'nin ikonik kırmızı kostümü — gece yarısı temalı baz ve ay efektiyle. Karanlık ortamda LED bazla sunulabilir; ışıklandırma kiti ayrıca satılmaktadır.',
+   specs:{Yükseklik:'27 cm',Ağırlık:'490 g',Seri:'Gece Serisi',Üretim:'Sınırlı — 120 adet'}},
+  {id:23, name:'Zatanna Büst',cat:'dc',img:'zatanna bust.jpg',price:849,oldPrice:null,scale:'1/4 Büst',mat:'Reçine Büst',badge:'new',rating:5,reviews:27,
+   desc:'Sihirbaz Prenses — sihir efekti ve silindir şapkasıyla en zarif büst. Elinden çıkan sihir efektleri şeffaf mavi reçineyle hayata geçirilmiştir.',
+   specs:{Yükseklik:'20 cm',Ağırlık:'330 g',Seri:'Büst Koleksiyonu',Üretim:'El Boyamalı'}},
+  // Marvel
+  {id:24, name:'Iron Man MK-85',cat:'marvel',img:'',price:1799,oldPrice:2199,scale:'1/10',mat:'Premium Reçine',badge:'ltd',rating:5,reviews:211,
+   desc:'Endgame zırhı — enerji reaktör ışık efekti bazıyla koleksiyonun en görkemli parçası. Reaktör LED ışıklı olup pil kutusuyla birlikte gelir.',
+   specs:{Yükseklik:'32 cm',Ağırlık:'820 g',Seri:'Demir Zırh Serisi',Üretim:'Sınırlı — 250 adet'}},
+  {id:25, name:'Spider-Man Miles',cat:'marvel',img:'',price:1499,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'new',rating:5,reviews:88,
+   desc:'Miles Morales siyah-kırmızı takımıyla sallanma pozisyonunda; bina köşesi bazıyla. Ağ efektleri ultra ince reçine telden oluşur.',
+   specs:{Yükseklik:'28 cm',Ağırlık:'560 g',Seri:'Spider-Verse Serisi',Üretim:'El Boyamalı'}},
+  {id:26, name:'Thor Odinson',cat:'marvel',img:'',price:1899,oldPrice:null,scale:'1/6',mat:'Premium Reçine',badge:'ltd',rating:5,reviews:97,
+   desc:'Stormbreaker ve şimşek efektli baz — Infinity War versiyonu; tam boyutta etkileyici. Şimşek efektleri şeffaf sarı-mavi reçineyle bitirilmiştir.',
+   specs:{Yükseklik:'38 cm',Ağırlık:'1.2 kg',Seri:'Asgard Serisi',Üretim:'Sınırlı — 150 adet'}},
+  {id:27, name:'Black Panther',cat:'marvel',img:'',price:1699,oldPrice:null,scale:'1/10',mat:'Premium Reçine',badge:'',rating:4,reviews:63,
+   desc:'Wakanda vibranium kostümü — kinetik enerji parıltı detayı ve tırmanma pozisyonu. Mor kinetik enerji çizgileri karanlıkta hafifçe parlar.',
+   specs:{Yükseklik:'28 cm',Ağırlık:'590 g',Seri:'Wakanda Serisi',Üretim:'El Boyamalı'}},
+  {id:28, name:'Thanos Eldiveni',cat:'marvel',img:'',price:2499,oldPrice:2999,scale:'1/4',mat:'Polistone',badge:'ltd',rating:5,reviews:176,
+   desc:'Altı Sonsuzluk Taşıyla gerçek boyutlu sergi parçası — koleksiyonun tartışmasız zirvesi. Taşlar gerçek renk değişim kabiliyetli reçineden üretilmiştir.',
+   specs:{Yükseklik:'42 cm',Ağırlık:'2.1 kg',Seri:'Sonsuzluk Serisi',Üretim:'Sınırlı — 75 adet'}},
   // Star Wars
-  {id:29, name:'Darth Vader',         cat:'starwars',img:'', price:2199, oldPrice:null, scale:'1/6', mat:'Premium Reçine', badge:'ltd', rating:5, desc:'Sith Lordu — ışın kılıcı aktif, pelerin akar.'},
-  {id:30, name:'The Mandalorian',     cat:'starwars',img:'', price:1999, oldPrice:null, scale:'1/6', mat:'Premium Reçine', badge:'new', rating:5, desc:'Din Djarin ve Grogu hover pramıyla — çift figür seti.'},
-  {id:31, name:'Yoda Jedi Ustası',    cat:'starwars',img:'', price:1599, oldPrice:null, scale:'1/6', mat:'Polistone',      badge:'',   rating:5, desc:'Savaş Yoda\'sı — Force sıçrayışı pozisyonu.'},
-  {id:32, name:'Boba Fett',           cat:'starwars',img:'', price:1899, oldPrice:null, scale:'1/6', mat:'Premium Reçine', badge:'',   rating:4, desc:'Mandalorian zırh ve jetpack detayıyla efsane ödül avcısı.'},
-
+  {id:29, name:'Darth Vader',cat:'starwars',img:'',price:2199,oldPrice:null,scale:'1/6',mat:'Premium Reçine',badge:'ltd',rating:5,reviews:158,
+   desc:'Sith Lordu etkileyici duruşuyla — ışın kılıcı aktif, pelerin akar; Yıldız Savaşları koleksiyonunun başyapıtı. Kırmızı ışın kılıcı LED aydınlatmalıdır.',
+   specs:{Yükseklik:'40 cm',Ağırlık:'1.4 kg',Seri:'Karanlık Taraf Serisi',Üretim:'Sınırlı — 100 adet'}},
+  {id:30, name:'The Mandalorian',cat:'starwars',img:'',price:1999,oldPrice:null,scale:'1/6',mat:'Premium Reçine',badge:'new',rating:5,reviews:83,
+   desc:'Din Djarin ve Grogu hover pramıyla — çift figür seti; her detayı sinema kalitesinde. Bu Yol\'un sonsuz yolculuğu iki figüre sığdırılmış.',
+   specs:{Yükseklik:'36 cm',Ağırlık:'1.05 kg',Seri:'Mandalore Serisi',Üretim:'El Boyamalı'}},
+  {id:31, name:'Yoda Jedi Ustası',cat:'starwars',img:'',price:1599,oldPrice:null,scale:'1/6',mat:'Polistone',badge:'',rating:5,reviews:121,
+   desc:'Savaş Yoda\'sı — Force sıçrayışı pozisyonu ve yeşil ışın kılıcıyla. Yeşil ışın kılıcı LED aydınlatmalıdır; yüz ifadesi inanılmaz detayla işlenmiştir.',
+   specs:{Yükseklik:'22 cm',Ağırlık:'780 g',Seri:'Jedi Ustası Serisi',Üretim:'El Boyamalı'}},
+  {id:32, name:'Boba Fett',cat:'starwars',img:'',price:1899,oldPrice:null,scale:'1/6',mat:'Premium Reçine',badge:'',rating:4,reviews:74,
+   desc:'Sarlacc\'tan sağ kurtulan efsane ödül avcısı — Mandalorian zırh ve jetpack detayıyla. Zırhın savaş izleri ve yamalar tek tek elle uygulanmıştır.',
+   specs:{Yükseklik:'38 cm',Ağırlık:'1.15 kg',Seri:'Ödül Avcısı Serisi',Üretim:'El Boyamalı'}},
   // LOTR
-  {id:33, name:'Gandalf Beyaz',       cat:'lotr',    img:'', price:2299, oldPrice:null, scale:'1/6', mat:'Premium Reçine', badge:'ltd', rating:5, desc:'Pelennor Gandalf\'ı Shadowfax\'ın üzerinde — çift figür.'},
-  {id:34, name:'Aragorn Kral',        cat:'lotr',    img:'', price:2099, oldPrice:null, scale:'1/6', mat:'Premium Reçine', badge:'new', rating:5, desc:'Gondor plakalı zırhıyla taç giyme töreni sahnesi.'},
-  {id:35, name:'Sauron Kara Lord',    cat:'lotr',    img:'', price:2699, oldPrice:3299, scale:'1/6', mat:'Polistone',      badge:'ltd', rating:5, desc:'Kara Kapı Sauron tam Kara zırhıyla — koleksiyonun taç mücevheri.'},
-  {id:36, name:'Gollum & Yüzük',      cat:'lotr',    img:'', price:1699, oldPrice:null, scale:'1/6', mat:'Premium Reçine', badge:'',   rating:4, desc:'Çift doğa heykeli — bir yanda Sméagol, diğer yanda Gollum.'},
+  {id:33, name:'Gandalf Beyaz',cat:'lotr',img:'',price:2299,oldPrice:null,scale:'1/6',mat:'Premium Reçine',badge:'ltd',rating:5,reviews:92,
+   desc:'Pelennor Ovası Gandalf\'ı Shadowfax\'ın üzerinde — çift figür; Orta Dünya epiğinin zirvesi. At ve binici arasındaki dinamizm 3D baskı teknolojisinin başyapıtıdır.',
+   specs:{Yükseklik:'38 cm',Ağırlık:'1.35 kg',Seri:'İstif Serisi',Üretim:'Sınırlı — 80 adet'}},
+  {id:34, name:'Aragorn Kral',cat:'lotr',img:'',price:2099,oldPrice:null,scale:'1/6',mat:'Premium Reçine',badge:'new',rating:5,reviews:68,
+   desc:'Gondor plakalı zırhıyla Aragorn\'un taç giyme töreni sahnesi — kraliyet atmosferi tam hissettiriyor. Anduril kılıcının kabzasındaki oyma detayı loopa büyülteçle görülebilir.',
+   specs:{Yükseklik:'38 cm',Ağırlık:'1.2 kg',Seri:'Gondor Serisi',Üretim:'El Boyamalı'}},
+  {id:35, name:'Sauron Kara Lord',cat:'lotr',img:'',price:2699,oldPrice:3299,scale:'1/6',mat:'Polistone',badge:'ltd',rating:5,reviews:139,
+   desc:'Kara Kapı Sauron tam Kara zırhıyla — koleksiyonun taç mücevheri; tartışmasız en etkileyici parça. Göz efekti içten aydınlatmalı olup karanlıkta muhteşem görünür.',
+   specs:{Yükseklik:'46 cm',Ağırlık:'2.4 kg',Seri:'Kara Lord Serisi',Üretim:'Sınırlı — 60 adet'}},
+  {id:36, name:'Gollum & Yüzük',cat:'lotr',img:'',price:1699,oldPrice:null,scale:'1/6',mat:'Premium Reçine',badge:'',rating:4,reviews:55,
+   desc:'Çift doğa heykeli — bir yanda Sméagol, diğer yanda Gollum; dönüşümün dramatik anı. Yüzük gerçek altın varak boyayla kaplanmıştır.',
+   specs:{Yükseklik:'24 cm',Ağırlık:'610 g',Seri:'Preciousss Serisi',Üretim:'El Boyamalı'}},
+];
+
+const HOW_STEPS=[
+  '3D modelleme yazılımıyla milimetrik hassasiyette dijital heykel oluşturulur.',
+  'Endüstriyel reçine/FDM yazıcılarla katman katman baskı alınır.',
+  'Yüzey zımparalama, dolgu ve astar uygulamasıyla mükemmel yüzey elde edilir.',
+  'Her figürin deneyimli boyacılar tarafından elle boyanır ve detaylandırılır.',
+  'Seri numaralı sertifika ve özel koleksiyon kutusuyla teslim edilir.',
 ];
 
 const LABELS={all:'Tüm Figürinler',marvel:'Marvel Evreni',dc:'DC Efsaneleri',starwars:'Star Wars Galaksisi',lotr:'Yüzüklerin Efendisi'};
 const CAT_LABEL={dc:'DC',marvel:'MARVEL',starwars:'STAR WARS',lotr:'LOTR'};
-let currentCat='all',currentSort='featured',cartCount=0;
+const CAT_NAME={dc:'DC Comics',marvel:'Marvel Evreni',starwars:'Star Wars',lotr:'Yüzüklerin Efendisi'};
+
+let currentCat='all',currentSort='featured',cartCount=0,modalQty=1,currentProduct=null;
 
 function stars(n){return '★'.repeat(n)+'☆'.repeat(5-n);}
 
@@ -320,11 +703,12 @@ function imgContent(p){
   return `<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.outerHTML='<div class=\\'no-img\\'>◈</div>'">`;
 }
 
+/* ═══ CARD RENDER ═══ */
 function renderCard(p,i){
   const badgeHtml=p.badge?`<span class="card-badge ${p.badge}">${p.badge==='new'?'YENİ':p.badge==='ltd'?'SINIRLI':'TÜKENDİ'}</span>`:'';
   const oldHtml=p.oldPrice?`<span class="price-old">₺${p.oldPrice.toLocaleString('tr-TR')}</span>`:'';
   const sold=p.badge==='sold';
-  return `<div class="card" style="animation-delay:${i*0.04}s">
+  return `<div class="card" style="animation-delay:${i*0.04}s" onclick="openModal(${p.id})">
     <div class="card-img">
       <span class="card-franchise ${p.cat}">${CAT_LABEL[p.cat]}</span>
       ${badgeHtml}
@@ -333,7 +717,7 @@ function renderCard(p,i){
     </div>
     <div class="card-body">
       <div class="card-name">${p.name}</div>
-      <div class="card-desc">${p.desc}</div>
+      <div class="card-desc">${p.desc.substring(0,80)}…</div>
       <div class="card-meta"><span>${p.scale} Ölçek</span><span class="sep">·</span><span>${p.mat}</span></div>
       <div class="card-footer">
         <div>
@@ -343,7 +727,7 @@ function renderCard(p,i){
           </div>
           <div class="stars">${stars(p.rating)}</div>
         </div>
-        <button class="add-btn" ${sold?'disabled':''} onclick="addToCart('${p.name.replace(/'/g,"\\'")}')">
+        <button class="add-btn" ${sold?'disabled':''} onclick="event.stopPropagation();addToCart(${p.id})">
           ${sold?'TÜKENDİ':'SEPETE EKLE'}
         </button>
       </div>
@@ -351,6 +735,7 @@ function renderCard(p,i){
   </div>`;
 }
 
+/* ═══ GRID ═══ */
 function getFiltered(){
   const q=document.getElementById('searchInput').value.toLowerCase().trim();
   let list=PRODUCTS.filter(p=>{
@@ -363,7 +748,6 @@ function getFiltered(){
   if(currentSort==='price-desc') list.sort((a,b)=>b.price-a.price);
   return list;
 }
-
 function renderGrid(){
   const list=getFiltered();
   document.getElementById('sectionLabel').textContent=LABELS[currentCat];
@@ -374,7 +758,6 @@ function renderGrid(){
   if(!list.length){grid.innerHTML='';empty.style.display='block';}
   else{grid.innerHTML=list.map((p,i)=>renderCard(p,i)).join('');empty.style.display='none';}
 }
-
 function setCategory(cat,btn){
   currentCat=cat;
   document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
@@ -382,22 +765,140 @@ function setCategory(cat,btn){
   document.getElementById('shopSection').scrollIntoView({behavior:'smooth',block:'start'});
   renderGrid();
 }
-
 function setSort(sort,btn){
   currentSort=sort;
   document.querySelectorAll('.filter-pill').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderGrid();
 }
-
 function filterProducts(){renderGrid();}
 
-function addToCart(name){
-  cartCount++;
-  document.getElementById('cartCount').textContent=cartCount;
-  showToast('✓ '+name+' sepete eklendi!');
+/* ═══════════════════════════════════════
+   MODAL
+═══════════════════════════════════════ */
+function openModal(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  currentProduct=p;
+  modalQty=1;
+  document.getElementById('qtyDisplay').textContent=1;
+
+  // Image panel
+  const imgPanel=document.getElementById('modalImgPanel');
+  const imgContent2=document.getElementById('modalImgContent');
+  if(p.img){
+    imgContent2.innerHTML=`<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.outerHTML='<div class=\\'modal-no-img\\'>◈</div>'">`;
+  } else {
+    imgContent2.innerHTML=`<div class="modal-no-img">◈</div>`;
+  }
+  document.getElementById('modalStrip').className='m-strip '+p.cat;
+
+  // Franchise tag
+  const ftag=document.getElementById('modalFranchiseTag');
+  ftag.textContent=CAT_LABEL[p.cat];
+  ftag.className='m-franchise-tag '+p.cat;
+
+  // Badge tag
+  const btag=document.getElementById('modalBadgeTag');
+  if(p.badge){
+    btag.style.display='block';
+    btag.className='modal-badge-tag '+p.badge;
+    btag.textContent=p.badge==='new'?'YENİ':p.badge==='ltd'?'SINIRLI EDİSYON':'TÜKENDİ';
+  } else { btag.style.display='none'; }
+
+  // Eyebrow
+  document.getElementById('modalEyebrowDot').className='modal-eyebrow-dot '+p.cat;
+  document.getElementById('modalEyebrowText').textContent=CAT_NAME[p.cat]+' · '+p.scale+' Ölçek · '+p.mat;
+
+  // Title
+  document.getElementById('modalTitle').textContent=p.name;
+
+  // Stars
+  document.getElementById('modalStars').textContent=stars(p.rating);
+  document.getElementById('modalReviewCount').textContent='('+p.reviews+' değerlendirme)';
+
+  // Price
+  document.getElementById('modalPrice').textContent='₺'+p.price.toLocaleString('tr-TR');
+  const oldEl=document.getElementById('modalPriceOld');
+  const saveEl=document.getElementById('modalPriceSave');
+  if(p.oldPrice){
+    oldEl.style.display='inline';
+    oldEl.textContent='₺'+p.oldPrice.toLocaleString('tr-TR');
+    const pct=Math.round((1-p.price/p.oldPrice)*100);
+    saveEl.style.display='inline-block';
+    saveEl.textContent='%'+pct+' İNDİRİM';
+  } else {
+    oldEl.style.display='none';
+    saveEl.style.display='none';
+  }
+
+  // Desc
+  document.getElementById('modalDesc').textContent=p.desc;
+
+  // Specs
+  const specsHtml=Object.entries(p.specs).map(([k,v])=>`
+    <div class="spec-item">
+      <div class="spec-label">${k}</div>
+      <div class="spec-val">${v}</div>
+    </div>`).join('');
+  document.getElementById('modalSpecs').innerHTML=specsHtml;
+
+  // How steps
+  const stepsHtml=HOW_STEPS.map((s,i)=>`
+    <div class="how-step">
+      <span class="how-step-num ${p.cat}">${i+1}</span>
+      <span>${s}</span>
+    </div>`).join('');
+  document.getElementById('modalHowSteps').innerHTML=stepsHtml;
+
+  // Buy button
+  const buyBtn=document.getElementById('modalBuyBtn');
+  if(p.badge==='sold'){
+    buyBtn.disabled=true;
+    buyBtn.textContent='TÜKENDİ';
+  } else {
+    buyBtn.disabled=false;
+    buyBtn.innerHTML='🛒 Sepete Ekle';
+  }
+
+  // Open
+  document.body.style.overflow='hidden';
+  document.getElementById('modalOverlay').classList.add('open');
 }
 
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow='';
+  currentProduct=null;
+}
+
+function handleOverlayClick(e){
+  if(e.target===document.getElementById('modalOverlay')) closeModal();
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal();});
+
+function changeQty(d){
+  modalQty=Math.max(1,Math.min(10,modalQty+d));
+  document.getElementById('qtyDisplay').textContent=modalQty;
+}
+
+function modalAddToCart(){
+  if(!currentProduct) return;
+  cartCount+=modalQty;
+  document.getElementById('cartCount').textContent=cartCount;
+  showToast('✓ '+currentProduct.name+' ('+modalQty+') sepete eklendi!');
+  closeModal();
+}
+
+/* ═══ CART / TOAST ═══ */
+function addToCart(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  cartCount++;
+  document.getElementById('cartCount').textContent=cartCount;
+  showToast('✓ '+p.name+' sepete eklendi!');
+}
 function showToast(msg){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
